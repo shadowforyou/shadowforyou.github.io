@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.poi.testpoi.mapper.HyFdheexBMapper">
+
+	<select id="selectstcd" resultType="Integer" parameterType="com.poi.testpoi.pojo.HyFdheexB">
+		select count(1) from hy_fdheex_b where STCD=#{stcd} and TM=#{tm}
+	</select>
+	
+	<delete id="delete" parameterType="com.poi.testpoi.pojo.HyFdheexB">
+		delete from hy_fdheex_b where
+		STCD = #{stcd}
+		and TM = #{tm}
+	</delete>
+	
+	<insert id="add" parameterType="com.poi.testpoi.pojo.HyFdheexB">
+        INSERT INTO hy_fdheex_b (STCD,TM,Z,ZRCD,Q,S) VALUES (#{stcd},#{tm},#{z},#{zrdc},#{q},#{s})
+    </insert>
+
+</mapper>

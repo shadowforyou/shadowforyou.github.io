@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.poi.testpoi.mapper.HyDmxpFMapper">
+
+	<select id="selectstcd" resultType="Integer" parameterType="com.poi.testpoi.pojo.HyDmxpF">
+		select count(1) from hy_dmxp_f where STCD=#{stcd} and YR=#{year} and MXPDR=#{mxpdr}
+	</select>
+
+	<delete id="delete" parameterType="com.poi.testpoi.pojo.HyDmxpF">
+		delete from hy_dmxp_f where
+		STCD =#{stcd} 
+		and YR =#{year}
+		and MXPDR=#{mxpdr}
+	</delete>
+	
+	<insert id="add" parameterType="com.poi.testpoi.pojo.HyDmxpF">
+        INSERT INTO hy_dmxp_f (STCD,YR,BGDT,MXPDR,MXP,MXPRC) VALUES (#{stcd},#{year},#{bgdt},#{mxpdr},#{mxp},#{mxprc})
+    </insert>
+
+</mapper>

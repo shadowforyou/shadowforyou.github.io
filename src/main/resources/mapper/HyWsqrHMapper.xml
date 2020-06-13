@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.poi.testpoi.mapper.HyWsqrHMapper">
+
+	<select id="selectstcd" resultType="Integer" parameterType="com.poi.testpoi.pojo.HyWsqrH">
+		select count(1) from hy_wsqr_h where STCD=#{stcd} and RTNO=#{rtno} and MSQBGTM=#{msqbgtm}
+	</select>
+	
+	<delete id="delete" parameterType="com.poi.testpoi.pojo.HyWsqrH">
+		delete from hy_wsqr_h where
+		STCD=#{stcd} and RTNO=#{rtno} and MSQBGTM=#{msqbgtm}
+	</delete>
+	
+	<insert id="add" parameterType="com.poi.testpoi.pojo.HyWsqrH">
+        INSERT INTO hy_wsqr_h 
+        (STCD,RTNO,MSQBGTM,MSQEDTM,GTGRNO,UPZ,DWZ,UPHD,DWSHD,ZD,OGAVHT,OGCN,OGTTWD,AVWRWD,GTXSA,OBQ,FLRG,QCFRNO,
+        IVNM,IVV,QK,XSQLC,MSQMT,XSA,XSAVV,OBNONT) 
+        VALUES 
+        (#{stcd},#{rtno},#{msqbgtm},#{msqedtm},#{gtgrno},#{upz},#{dwz},#{uphd},#{dwshd},#{zd},
+        #{ogavht},#{ogcn},#{ogttwd},#{avwrwd},#{gtxsa},#{obq},#{flrg},#{qcfrno},#{ivnm},#{ivv},#{qk},#{xsqlc},
+        #{msqmt},#{xsa},#{xsavv},#{obnont})
+    </insert>
+
+</mapper>

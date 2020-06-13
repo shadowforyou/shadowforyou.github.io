@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.poi.testpoi.mapper.HyStscAMapper">
+
+    <select id="selectstcd" resultType="Integer" parameterType="com.poi.testpoi.pojo.HyStscA">
+        select count(1) from hy_stsc_a where
+        STCD=#{stcd}
+    </select>
+
+    <delete id="delete" parameterType="com.poi.testpoi.pojo.HyStscA">
+        delete from hy_stsc_a where
+        STCD=#{stcd}
+    </delete>
+
+    <insert id="add" parameterType="com.poi.testpoi.pojo.HyStscA">
+        INSERT INTO hy_stsc_a (STCD,STNM,STCT,HNNM,RVNM,ESSTYR,ESSTMTH,FDTMNM,STLC,NT)
+        VALUES
+        (#{stcd},#{stnm},#{stct},#{hnnm},#{rvnm},#{esstyr},#{esstmth},#{fdtmnm},#{stlc},#{nt})
+    </insert>
+
+</mapper>

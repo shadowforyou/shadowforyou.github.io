@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.poi.testpoi.mapper.HyYrqFMapper">
+
+	<select id="selectstcd" resultType="Integer" parameterType="com.poi.testpoi.pojo.HyYrqF">
+		select count(1) from hy_yrq_f where STCD = #{stcd} and YR=#{year}
+	</select>
+	
+	<delete id="delete" parameterType="com.poi.testpoi.pojo.HyYrqF">
+		delete from hy_yrq_f where
+		STCD = #{stcd} and YR=#{year}
+	</delete>
+	
+	<insert id="add" parameterType="com.poi.testpoi.pojo.HyYrqF">
+        INSERT INTO hy_yrq_f (STCD,YR,AVQ,AVQRCD,MXQ,MXQRCD,MXQDT,MNQ,MNQRCD,MNQDT,RW,RWRCD,RM,RD) 
+        VALUES (#{stcd},#{year},#{avq},#{avqrcd},#{mxq},#{mxqrcd},#{mxqdt},#{mnq},#{mnqrcd},#{mnqdt},#{rw},#{rwrcd},#{rm},#{rd})
+    </insert>
+
+</mapper>

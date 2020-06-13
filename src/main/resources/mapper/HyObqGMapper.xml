@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.poi.testpoi.mapper.HyObqGMapper">
+
+	<select id="selectstcd" resultType="Integer" parameterType="com.poi.testpoi.pojo.HyObqG">
+		select count(1) from hy_obq_g where STCD=#{stcd} and QOBNO=#{qobno} and MSQBGTM=#{msqbgtm} and XSQLC=#{xsqlc}
+	</select>
+	
+	<delete id="delete" parameterType="com.poi.testpoi.pojo.HyObqG">
+		delete from hy_obq_g where
+		STCD=#{stcd} and QOBNO=#{qobno} and MSQBGTM=#{msqbgtm} and XSQLC=#{xsqlc}
+	</delete>
+	
+	<insert id="add" parameterType="com.poi.testpoi.pojo.HyObqG">
+        INSERT INTO hy_obq_g 
+        (STCD,QOBNO,MSQBGTM,MSQEDTM,XSQLC,MSQMT,BSGGZ,Q,QRCD,XSTTA,XSARCD,XSAVV,XSMXV,TPWD,XSAVDP,XSMXDP,RVSFSL,N,OBNONT) 
+        VALUES 
+        (#{stcd},#{qobno},#{msqbgtm},#{msqedtm},#{xsqlc},#{msqmt},#{bsggz},#{q},#{qrcd},#{xstta},#{xsarcd},#{xsavv},#{xsmxv},#{tpwd},#{xsavdp},#{xsmxdp},#{rvsfsl},#{n},#{obnont})
+    </insert>
+
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.poi.testpoi.mapper.HyMtzEMapper">
+
+	<select id="selectstcd" resultType="Integer" parameterType="com.poi.testpoi.pojo.HyMtzE">
+		select count(1) from hy_mtz_e where STCD=#{stcd} and YR=#{year} and MTH=#{mth}
+	</select>
+
+	<delete id="delete" parameterType="com.poi.testpoi.pojo.HyMtzE">
+		delete from hy_mtz_e where
+		STCD=#{stcd} and YR=#{year} and MTH=#{mth}
+	</delete>
+	
+	<insert id="add" parameterType="com.poi.testpoi.pojo.HyMtzE">
+        INSERT INTO hy_mtz_e (STCD,YR,MTH,AVZ,AVZRCD,HTZ,HTZRCD,HTZDT,MNZ,MNZRCD,MNZDT) VALUES (#{stcd},#{year},#{mth},#{avz},#{avzrcd},#{htz},#{htzrcd},#{htzdt},#{mnz},#{mnzrcd},#{mnzdt})
+    </insert>
+
+</mapper>

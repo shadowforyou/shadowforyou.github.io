@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.poi.testpoi.mapper.YbIndexMapper">
+
+    <select id="selectstcd" resultType="Integer" parameterType="com.poi.testpoi.pojo.YbIndex">
+		select count(1) from yb_index where
+		YEAR=#{year} and STCD=#{stcd}
+	</select>
+
+    <delete id="delete" parameterType="com.poi.testpoi.pojo.YbIndex">
+		delete from yb_index where
+		YEAR=#{year} and STCD=#{stcd}
+	</delete>
+
+    <insert id="add" parameterType="com.poi.testpoi.pojo.YbIndex">
+      INSERT INTO yb_index
+      (YEAR,STCD,HY_DZ_C,HY_XSMSRS_G,HY_OBQ_G,HY_WSQR_H,HY_DQ_C,HY_FDHEEX_B,HY_WSFHEX_B,HY_RVFHEX_B,HY_DCS_C,HY_DQS_C,HY_DP_C,HY_PREX_B,HY_MMXP_F,HY_HMXP_F,HY_DWE_C)
+      VALUES
+      (#{year},#{stcd},#{hy_dz_c},#{hy_xsmsrs_g},#{hy_obq_g},#{hy_wsqr_h},#{hy_dq_c},#{hy_fdheex_b},#{hy_wsfhex_b},#{hy_rvfhex_b},#{hy_dcs_c},#{hy_dqs_c},#{hy_dp_c},#{hy_prex_b},#{hy_mmxp_f},#{hy_hmxp_f},#{hy_dwe_c})
+    </insert>
+
+</mapper>

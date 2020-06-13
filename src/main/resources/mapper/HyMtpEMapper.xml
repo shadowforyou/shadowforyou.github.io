@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.poi.testpoi.mapper.HyMtpEMapper">
+
+	<select id="selectstcd" resultType="Integer" parameterType="com.poi.testpoi.pojo.HyMtpE">
+		select count(1) from hy_mtp_e where STCD=#{stcd} and YR=#{year} 
+	</select>
+	
+	<select id="selectOtd" resultType="Date" parameterType="com.poi.testpoi.pojo.HyMtpE">
+		select DT from hy_dp_c where STCD=#{stcd} and P=#{mxdyp}  and DT &lt;=#{endTime} and DT &gt;=#{beginTime} limit 1
+	</select>
+	
+	<delete id="delete" parameterType="com.poi.testpoi.pojo.HyMtpE">
+		delete from hy_mtp_e where
+		STCD =#{stcd}
+		and YR =#{year} 
+		and MTH =#{mth}
+	</delete>
+	
+	<insert id="add" parameterType="com.poi.testpoi.pojo.HyMtpE">
+        INSERT INTO hy_mtp_e (STCD,YR,MTH,P,PRCD,PDYNUM,PDYNUMRCD,MXDYP,MXDYPRCD,MXDYPODT) VALUES (#{stcd},#{year},#{mth},#{p},#{prcd},#{pdynum},#{pdynumrcd},#{mxdyp},#{mxdyprcd},#{mxdypodt, jdbcType = TIMESTAMP})
+    </insert>
+
+</mapper>

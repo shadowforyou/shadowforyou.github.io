@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.poi.testpoi.mapper.HyDcsCMapper">
+
+	<select id="selectstcd" resultType="Integer" parameterType="com.poi.testpoi.pojo.HyDcsC">
+		select count(1) from hy_dcs_c where STCD=#{stcd} and DT=#{dt}
+	</select>
+	
+	<delete id="delete" parameterType="com.poi.testpoi.pojo.HyDcsC">
+		delete from hy_dcs_c where
+		STCD =#{stcd} 
+		and DT =#{dt} 
+	</delete>
+	
+	<insert id="add" parameterType="com.poi.testpoi.pojo.HyDcsC">
+        INSERT INTO hy_dcs_c (STCD,DT,AVCS,AVCSRCD) VALUES (#{stcd},#{dt},#{avcs},#{avcsrcd})
+    </insert>
+
+</mapper>

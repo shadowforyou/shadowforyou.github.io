@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.poi.testpoi.mapper.HyXsmsrsGMapper">
+
+	<select id="selectstcd" resultType="Integer" parameterType="com.poi.testpoi.pojo.HyXsmsrsG">
+		select count(1) from hy_xsmsrs_g where STCD=#{stcd} and OBDT=#{obdt} and OBNO=#{obno} and VTNO=#{vtno}
+	</select>
+	
+	<delete id="delete" parameterType="com.poi.testpoi.pojo.HyXsmsrsG">
+		delete from hy_xsmsrs_g where
+		STCD=#{stcd} and OBDT=#{obdt} and OBNO=#{obno} and VTNO=#{vtno}
+	</delete>
+	
+	<insert id="add" parameterType="com.poi.testpoi.pojo.HyXsmsrsG">
+        INSERT INTO hy_xsmsrs_g (STCD,OBDT,OBDRZ,OBNO,VTNO,DI,RVBDEL) 
+        VALUES 
+        (#{stcd},#{obdt},#{obdrz},#{obno},#{vtno},#{di},#{rvbdel})
+    </insert>
+
+</mapper>

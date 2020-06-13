@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.poi.testpoi.mapper.HyDaexIMapper">
+
+	<select id="selectstcd" resultType="Integer" parameterType="com.poi.testpoi.pojo.HyDaexI">
+		select count(1) from hy_daex_i where STCD=#{stcd} and YR=#{year} and TBID=#{tbid}
+	</select>
+
+	<delete id="delete" parameterType="com.poi.testpoi.pojo.HyDaexI">
+		delete from hy_daex_i where
+		STCD =#{stcd} 
+		and YR =#{year}
+		and TBID=#{tbid}
+	</delete>
+	
+	<insert id="add" parameterType="com.poi.testpoi.pojo.HyDaexI">
+        INSERT INTO hy_daex_i (STCD,YR,TBID,NT) VALUES (#{stcd},#{year},#{tbid},#{nt})
+    </insert>
+
+</mapper>

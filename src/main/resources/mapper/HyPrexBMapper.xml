@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.poi.testpoi.mapper.HyPrexBMapper">
+
+	<select id="selectstcd" resultType="Integer" parameterType="com.poi.testpoi.pojo.HyPrexB">
+		select count(1) from hy_prex_b where STCD=#{stcd} and BGTM=#{bgtm}
+	</select>
+	
+	<delete id="delete" parameterType="com.poi.testpoi.pojo.HyPrexB">
+		delete from hy_prex_b where
+		STCD=#{stcd} and BGTM=#{bgtm}
+	</delete>
+
+	<insert id="add" parameterType="com.poi.testpoi.pojo.HyPrexB">
+        INSERT INTO hy_prex_b (STCD,BGTM,ENDTM,P) VALUES (#{stcd},#{bgtm},#{endtm},#{p})
+    </insert>
+
+</mapper>
